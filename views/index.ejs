@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bill Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            text-align: center;
+            padding: 50px;
+        }
+        .container {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            width: 40%;
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        label {
+            font-size: 16px;
+            font-weight: bold;
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input {
+            width: 90%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Energy Bill Generator</h1>
+        <form method="post" action="/bill">
+            <label for="names">Enter your name</label>
+            <input type="text" id="names" name="name" placeholder="Your Name" required>
+            
+            <label for="city">Enter your City Name</label>
+            <input type="text" name="city" id="city" placeholder="Your City" required>
+            
+            <label for="units">Enter the units used</label>
+            <input type="number" name="units" id="units" placeholder="Units Consumed" required>
+            
+            <button type="submit">Generate Bill</button>
+        </form>
+    </div>
+</body>
+</html>

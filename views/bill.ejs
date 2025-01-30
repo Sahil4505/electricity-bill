@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electricity Bill</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+        }
+        .bill-container {
+            width: 50%;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h2 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+        .info {
+            font-size: 18px;
+            margin-bottom: 8px;
+            color: #34495e;
+        }
+        .breakdown {
+            margin-top: 20px;
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            width: 50%;
+        }
+        .breakdown p {
+            font-size: 16px;
+            padding: 5px 0;
+            border-bottom: 1px solid #ecf0f1;
+        }
+        .total {
+            font-weight: bold;
+            font-size: 20px;
+            color: #e74c3c;
+        }
+    </style>
+</head>
+<body>
+    <div class="bill-container">
+        <h2>Electricity Bill Statement</h2>
+        <p class="info"><strong>Customer Name:</strong> <%= info[0] %></p>
+        <p class="info"><strong>Location:</strong> <%= info[1] %></p>
+        <p class="info"><strong>Units Used:</strong> <%= info[2] %></p>
+    </div>
+    <div class="breakdown">
+        <h3>Charges Breakdown</h3>
+        <% let counter=1 %>
+        <% let sum=0 %>
+        <% for(trans of arr){ %>
+            <p><strong><%=counter%>.</strong> <%=trans[0]%> Units ❌ <%=trans[1]%> Rs = <strong><%=(trans[0]*trans[1])%> Rs</strong></p>
+            <% counter++; %>
+            <% sum+=(trans[0]*trans[1]) %>
+        <% } %>
+        <p class="total">Total Payable Amount: <%=sum%> Rs</p>
+    </div>
+</body>
+</html>
